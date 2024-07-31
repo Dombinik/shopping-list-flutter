@@ -25,9 +25,7 @@ class _GroceryListState extends State<GroceryList> {
   }
 
   void _loadItems() async {
-    final url = Uri.https(
-        'grocery-list-1c47a-default-rtdb.asia-southeast1.firebasedatabase.app',
-        'shopping-list.json');
+    final url = Uri.https('FIREBASE_URL', 'shopping-list.json');
 
     try {
       final response = await http.get(url);
@@ -94,9 +92,7 @@ class _GroceryListState extends State<GroceryList> {
       _groceryItems.remove(item);
     });
 
-    final url = Uri.https(
-        'grocery-list-1c47a-default-rtdb.asia-southeast1.firebasedatabase.app',
-        'shopping-list/${item.id}.json');
+    final url = Uri.https('FIREBASE_URL', 'shopping-list/${item.id}.json');
 
     final response = await http.delete(url);
     if (response.statusCode >= 400) {

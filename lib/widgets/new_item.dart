@@ -28,9 +28,7 @@ class _NewItemState extends State<NewItem> {
         _isSending = true;
       });
       _formKey.currentState!.save();
-      final url = Uri.https(
-          'grocery-list-1c47a-default-rtdb.asia-southeast1.firebasedatabase.app',
-          'shopping-list.json');
+      final url = Uri.https('FIREBASE_URL', 'shopping-list.json');
       final response = await http.post(
         url,
         headers: {
